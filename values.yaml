@@ -4,6 +4,9 @@ elasticsearch:
   # only needed for local installations with only one node available
   # elastic setup consists of 2 default instances with antiAffinity configured to support failover
   antiAffinity: "soft"
+  replicas: 2
+  minimumMasterNodes: 1
+
 
 # Documentation
 # https://github.com/elastic/helm-charts/tree/master/kibana
