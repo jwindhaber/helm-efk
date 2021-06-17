@@ -1,2 +1,15 @@
+# Documentation
+# https://github.com/elastic/helm-charts/tree/master/elasticsearch
+elasticsearch:
+  # only needed for local installations with only one node available
+  # elastic setup consists of 2 default instances with antiAffinity configured to support failover
+  antiAffinity: "soft"
+
+# Documentation
+# https://github.com/elastic/helm-charts/tree/master/kibana
+#kibana:
 
 
+# Documentation
+# https://github.com/fluent/helm-charts/tree/main/charts/fluentd:
+#fluentd:
