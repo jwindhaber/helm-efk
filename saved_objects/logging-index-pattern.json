@@ -1,0 +1,22 @@
+{
+  "type": "index-pattern",
+  "id": "4fe604d0-d014-11eb-8bfb-4b94b056b1f9",
+  "attributes": {
+    "fieldAttrs": "{\"level\":{\"count\":1},\"logger_name\":{\"count\":1},\"message\":{\"count\":1},\"method\":{\"count\":2},\"kubernetes.namespace_name\":{\"count\":1},\"kubernetes.pod_name\":{\"count\":1}}",
+    "title": "fluentd*",
+    "timeFieldName": "@timestamp",
+    "fields": "[]",
+    "runtimeFieldMap": "{}"
+  },
+  "references": [],
+  "migrationVersion": {
+    "index-pattern": "7.11.0"
+  },
+  "coreMigrationVersion": "7.13.2",
+  "updated_at": "2021-06-18T10:59:56.664Z",
+  "version": "WzExOCwxXQ==",
+  "namespaces": [
+    "default"
+  ],
+  "score": 0
+}

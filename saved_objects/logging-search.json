@@ -1,0 +1,48 @@
+{
+  "type": "search",
+  "id": "5ecdc7c0-d01f-11eb-a630-a1d6fc8fd4cb",
+  "attributes": {
+    "title": "LoggerSearch",
+    "description": "",
+    "hits": 0,
+    "columns": [
+      "level",
+      "message",
+      "logger_name",
+      "kubernetes.pod_name",
+      "kubernetes.namespace_name"
+    ],
+    "sort": [
+      [
+        "@timestamp",
+        "desc"
+      ]
+    ],
+    "version": 1,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[{\"meta\":{\"alias\":null,\"negate\":false,\"disabled\":false,\"type\":\"exists\",\"key\":\"level\",\"value\":\"exists\",\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\"},\"exists\":{\"field\":\"level\"},\"$state\":{\"store\":\"appState\"}}],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+    }
+  },
+  "references": [
+    {
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+      "type": "index-pattern",
+      "id": "4fe604d0-d014-11eb-8bfb-4b94b056b1f9"
+    },
+    {
+      "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+      "type": "index-pattern",
+      "id": "4fe604d0-d014-11eb-8bfb-4b94b056b1f9"
+    }
+  ],
+  "migrationVersion": {
+    "search": "7.9.3"
+  },
+  "coreMigrationVersion": "7.13.2",
+  "updated_at": "2021-06-18T11:00:11.948Z",
+  "version": "WzExOSwxXQ==",
+  "namespaces": [
+    "default"
+  ],
+  "score": 0
+}
