@@ -10,7 +10,19 @@ elasticsearch:
 
 # Documentation
 # https://github.com/elastic/helm-charts/tree/master/kibana
-#kibana:
+kibana:
+  lifecycle:
+    postStart:
+      exec:
+        command:
+          - bash
+          - -c
+          - |
+            #!/bin/bash
+            # Import a dashboard
+            KB_URL=http://localhost:5601
+            while [[ "$(curl -s -o /dev/null -w '%{http_code}\n' -L $KB_URL)" != "200" ]]; do sleep 1; done
+            curl -XPOST "$KB_URL/api/kibana/dashboards/import" -H "Content-Type: application/json" -H 'kbn-xsrf: true' -d'{"objects":[{"type":"index-pattern","id":"4fe604d0-d014-11eb-8bfb-4b94b056b1f9","attributes":{"fieldAttrs":"{\"level\":{\"count\":1},\"logger_name\":{\"count\":1},\"message\":{\"count\":1},\"method\":{\"count\":2}}","title":"fluentd*","timeFieldName":"@timestamp","fields":"[]","runtimeFieldMap":"{}"},"references":[],"migrationVersion":{"index-pattern":"7.11.0"},"coreMigrationVersion":"7.13.2","updated_at":"2021-06-18T09:12:27.823Z","version":"Wzk3LDFd","namespaces":["default"],"score":0},{"attributes":{"columns":["level","message","logger_name"],"description":"","hits":0,"kibanaSavedObjectMeta":{"searchSourceJSON":"{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[{\"meta\":{\"alias\":null,\"negate\":false,\"disabled\":false,\"type\":\"exists\",\"key\":\"level\",\"value\":\"exists\",\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\"},\"exists\":{\"field\":\"level\"},\"$state\":{\"store\":\"appState\"}}],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"},"sort":[["@timestamp","desc"]],"title":"LoggerSearch","version":1},"coreMigrationVersion":"7.13.2","id":"5ecdc7c0-d01f-11eb-a630-a1d6fc8fd4cb","migrationVersion":{"search":"7.9.3"},"references":[{"id":"4fe604d0-d014-11eb-8bfb-4b94b056b1f9","name":"kibanaSavedObjectMeta.searchSourceJSON.index","type":"index-pattern"},{"id":"4fe604d0-d014-11eb-8bfb-4b94b056b1f9","name":"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index","type":"index-pattern"}],"sort":[1624011871804,54],"type":"search","updated_at":"2021-06-18T10:24:31.804Z","version":"WzU2LDFd"},{"type":"dashboard","id":"09febf00-d016-11eb-8bfb-4b94b056b1f9","attributes":{"title":"Logging","hits":0,"description":"","panelsJSON":"[{\"version\":\"7.13.2\",\"type\":\"search\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"25a59335-0132-46c1-afe9-267ddcf0087f\"},\"panelIndex\":\"25a59335-0132-46c1-afe9-267ddcf0087f\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_25a59335-0132-46c1-afe9-267ddcf0087f\"}]","optionsJSON":"{\"hidePanelTitles\":false,\"useMargins\":true}","version":1,"timeRestore":false,"kibanaSavedObjectMeta":{"searchSourceJSON":"{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"}},"references":[{"name":"25a59335-0132-46c1-afe9-267ddcf0087f:panel_25a59335-0132-46c1-afe9-267ddcf0087f","type":"search","id":"5ecdc7c0-d01f-11eb-a630-a1d6fc8fd4cb"}],"migrationVersion":{"dashboard":"7.13.1"},"coreMigrationVersion":"7.13.2","updated_at":"2021-06-18T09:17:44.048Z","version":"WzEzOSwxXQ==","namespaces":["default"],"score":0}]}'
 
 
 # Documentation
