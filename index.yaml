@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  efk:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-08-17T18:30:40.670160651Z"
+    dependencies:
+    - name: fluentd
+      repository: https://fluent.github.io/helm-charts
+      version: 0.2.8
+    - name: elasticsearch
+      repository: https://helm.elastic.co
+      version: 7.14.0
+    - name: kibana
+      repository: https://helm.elastic.co
+      version: 7.14.0
+    description: A Helm chart which sets up the efk (elastic, fluentd, kibana) Stack.
+    digest: cf0498bd64fcad5dc80db14ae5f4d92991a87f7b53d8ac12cbf343f156a6aa2c
+    name: efk
+    type: application
+    urls:
+    - https://github.com/jwindhaber/helm-efk/releases/download/efk-0.1.0/efk-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-08-17T18:30:40.463720788Z"
